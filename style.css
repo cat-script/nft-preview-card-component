@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+  object-fit: contain;
+}
+
+body,
+main,
+.icons,
+.icon,
+.creator,
+.creator div,
+.nft:hover .overlay,
+.nft:focus .overlay {
+  display: flex;
+}
+
+body {
+  height: 100vh;
+  font-family: "Outfit", sans-serif;
+  color: hsl(215, 51%, 70%);
+  background-color: hsl(217, 54%, 11%);
+  font-weight: 400;
+  line-height: 1.5;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  background-color: hsl(216, 50%, 16%);
+  max-width: 22rem;
+  min-height: 34rem;
+  padding: 1.5rem;
+  margin: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0px 8px 24px hsl(217, 54%, 11%);
+  box-shadow: 0px 8px 24px 12px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+}
+
+.nft {
+  overflow: auto;
+  border-radius: 8px;
+  position: relative;
+}
+
+.nft .overlay {
+  background-image: url(./images/icon-view.svg) no-repeat;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(178, 100%, 50%, 0.5);
+  display: none;
+}
+
+.overlay:hover {
+  transition: 0.5s ease;
+  color: hsl(178, 100%, 50%);
+  cursor: pointer;
+}
+
+h1,
+.name {
+  color: white;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 1.375rem;
+  margin: 1.25rem 0 0.75rem;
+}
+
+p {
+  font-weight: 300;
+  font-size: 1.125rem;
+  margin-bottom: 1.3rem;
+}
+
+.icons {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  gap: 8px;
+  margin-right: 2px;
+}
+
+.icon.value {
+  font-weight: 600;
+  color: hsl(178, 100%, 50%);
+}
+
+.creator {
+  align-items: center;
+  margin: 1.35rem 0 0.5rem;
+  padding-top: 1rem;
+  border-top: 0.1rem solid hsl(215, 32%, 27%);
+}
+
+.creator .avatar {
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 34px;
+  margin-right: 1rem;
+}
+
+.creator div {
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 400px) {
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 0.9rem;
+  }
+
+  .icons,
+  .creator {
+    font-size: 15px;
+  }
+
+  .creator {
+    margin: 0.9rem 0 0;
+  }
+
+  h1 {
+    margin: 1.35rem 0 0.55rem;
+  }
+}
