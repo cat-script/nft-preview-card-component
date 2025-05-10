@@ -4,145 +4,144 @@
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-* {
   margin: 0;
 }
 
 img {
   display: block;
-  max-inline-size: 100%;
-  block-size: auto;
-  object-fit: contain;
+  max-width: 100%;
 }
 
 body,
-main,
-.icons,
-.icon,
-.creator,
-.creator div,
-.nft:hover .overlay,
-.nft:focus .overlay {
+.card__nft:is(:focus, :hover) .overlay,
+.flex {
   display: flex;
+  flex-wrap: wrap;
 }
 
-body {
-  height: 100vh;
-  font-family: "Outfit", sans-serif;
-  color: hsl(215, 51%, 70%);
-  background-color: hsl(217, 54%, 11%);
-  font-weight: 400;
-  line-height: 1.5;
+body,
+.center {
   justify-content: center;
   align-items: center;
 }
 
-main {
-  background-color: hsl(216, 50%, 16%);
-  max-width: 22rem;
-  min-height: 34rem;
+.white-text {
+  color: white;
+}
+
+:root {
+  --ff: "Outfit", sans-serif;
+  --fw-n: 300;
+  --fw-m: 400;
+  --fw-b: 600;
+  --bg-color: hsl(217, 54%, 11%);
+  --card-bg-color: hsl(216, 50%, 16%);
+  --text-color: hsl(215, 51%, 70%);
+  --overlay-color: hsl(178, 100%, 50%);
+  --line-color: hsl(215, 32%, 27%);
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--ff);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  font-weight: var(--fw-m);
+  line-height: 1.5;
+}
+
+.card {
+  background-color: var(--card-bg-color);
+  width: min(22rem, 90%);
   padding: 1.5rem;
   margin: 1.5rem;
-  border-radius: 14px;
-  box-shadow: 0px 8px 24px hsl(217, 54%, 11%);
+  border-radius: 1rem;
   box-shadow: 0px 8px 24px 12px rgba(0, 0, 0, 0.1);
   flex-direction: column;
 }
 
-.nft {
-  overflow: auto;
+.card__nft {
+  overflow: hidden;
   border-radius: 8px;
   position: relative;
 }
 
-.nft .overlay {
+.card__nft .overlay {
   background-image: url(./images/icon-view.svg) no-repeat;
   position: absolute;
   top: 0;
   height: 100%;
   width: 100%;
-  justify-content: center;
-  align-items: center;
   background-color: hsla(178, 100%, 50%, 0.5);
   display: none;
 }
 
 .overlay:hover {
   transition: 0.5s ease;
-  color: hsl(178, 100%, 50%);
+  color: var(--overlay-color);
   cursor: pointer;
 }
 
-h1,
-.name {
-  color: white;
+.creator__name {
+  margin-left: 0.3125rem;
 }
 
-h1 {
-  font-weight: 600;
+.card__name {
+  font-weight: var(--fw-b);
   font-size: 1.375rem;
-  margin: 1.25rem 0 0.75rem;
+  margin: 1.3125rem 0 0.75rem;
 }
 
-p {
-  font-weight: 300;
+.card__description {
   font-size: 1.125rem;
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.3125rem;
 }
 
-.icons {
+.card__icons {
   justify-content: space-between;
-  align-items: center;
 }
 
 .icon {
-  gap: 8px;
-  margin-right: 2px;
+  gap: 7px;
+  margin-right: 3px;
 }
 
 .icon.value {
-  font-weight: 600;
-  color: hsl(178, 100%, 50%);
+  font-weight: var(--fw-b);
+  color: var(--overlay-color);
 }
 
-.creator {
-  align-items: center;
-  margin: 1.35rem 0 0.5rem;
+.card__creator {
+  justify-content: flex-start;
+  margin: 1.375rem 0 0.5rem;
   padding-top: 1rem;
-  border-top: 0.1rem solid hsl(215, 32%, 27%);
+  border-top: 0.1rem solid var(--line-color);
 }
 
-.creator .avatar {
+.creator__avatar {
   border: 2px solid white;
   border-radius: 50%;
-  width: 34px;
+  width: 2.125rem;
   margin-right: 1rem;
 }
 
-.creator div {
-  gap: 0.3rem;
-  flex-wrap: wrap;
-}
-
-@media screen and (max-width: 400px) {
-  p {
-    font-size: 16px;
+@media screen and (max-width: 25rem) {
+  .card__description {
+    font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.875rem;
   }
 
-  .icons,
-  .creator {
-    font-size: 15px;
+  .card__icons,
+  .card__creator {
+    font-size: 0.9375rem;
   }
 
-  .creator {
-    margin: 0.9rem 0 0;
+  .card__creator {
+    margin: 0.875rem 0 0;
   }
 
-  h1 {
-    margin: 1.35rem 0 0.55rem;
+  .card__name {
+    margin: 1.3125rem 0 0.5625rem;
   }
 }
